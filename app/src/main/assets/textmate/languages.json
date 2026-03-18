@@ -1,0 +1,19 @@
+{
+  "languages": [
+    {
+      "name": "json",
+      "grammar": "textmate/json/syntaxes/json.tmLanguage.json",
+      "scopeName": "source.json"
+    },
+    {
+      "name": "xml",
+      "grammar": "textmate/xml/syntaxes/xml.tmLanguage.json",
+      "scopeName": "text.xml"
+    },
+    {
+      "name": "log",
+      "grammar": "textmate/log/syntaxes/log.tmLanguage.json",
+      "scopeName": "text.log"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Basic Log",
+  "scopeName": "text.log",
+  "patterns": [
+    { "include": "#success" },
+    { "include": "#error" },
+    { "include": "#levels" }
+  ],
+  "repository": {
+    "success": {
+      "patterns": [
+        {
+          "name": "markup.inserted.log",
+          "match": "(?i)\\b(success|successful|successfully|ok|passed|done|completed)\\b"
+        }
+      ]
+    },
+    "error": {
+      "patterns": [
+        {
+          "name": "invalid.log",
+          "match": "(?i)\\b(error|err|failure|failed|fatal|exception|critical|not\\s+found)\\b"
+        }
+      ]
+    },
+    "levels": {
+      "patterns": [
+        {
+          "name": "keyword.other.log-level.info",
+          "match": "(?i)\\binfo\\b"
+        },
+        {
+          "name": "keyword.other.log-level.warn",
+          "match": "(?i)\\bwarn|warning\\b"
+        },
+        {
+          "name": "keyword.other.log-level.debug",
+          "match": "(?i)\\bdebug\\b"
+        }
+      ]
+    }
+  },
+  "version": "0.0.1"
+}

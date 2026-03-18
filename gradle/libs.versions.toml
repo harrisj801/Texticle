@@ -1,0 +1,14 @@
+[versions]
+agp = "8.12.0"
+kotlin = "2.2.0"
+ui = "1.9.0"
+uiGraphics = "1.9.0"
+[libraries]
+androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android       = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler     = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

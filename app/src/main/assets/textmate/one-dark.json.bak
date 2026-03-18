@@ -1,0 +1,27 @@
+{
+  "name": "One Dark (Minimal)",
+  "type": "dark",
+  "colors": {
+    "editor.foreground": "#ABB2BF",
+    "editor.background": "#1E222A",
+    "editor.selectionBackground": "#3E4451",
+    "editor.lineHighlightBackground": "#2C313C",
+    "editorCursor.foreground": "#528BFF",
+    "editorWhitespace.foreground": "#3B4048"
+  },
+  "tokenColors": [
+    { "scope": ["comment"], "settings": { "foreground": "#5C6370", "fontStyle": "italic" } },
+    { "scope": ["string"], "settings": { "foreground": "#98C379" } },
+    { "scope": ["constant.numeric"], "settings": { "foreground": "#D19A66" } },
+    { "scope": ["constant.language", "keyword.other.unit"], "settings": { "foreground": "#56B6C2" } },
+    { "scope": ["keyword", "storage.type"], "settings": { "foreground": "#C678DD" } },
+    { "scope": ["variable", "meta.object-literal.key"], "settings": { "foreground": "#E06C75" } },
+    { "scope": ["entity.name.tag"], "settings": { "foreground": "#E06C75" } },
+    { "scope": ["entity.other.attribute-name"], "settings": { "foreground": "#D19A66" } },
+    { "scope": ["punctuation.definition.block.begin", "punctuation.definition.block.end",
+      "punctuation.definition.array.begin", "punctuation.definition.array.end",
+      "punctuation.separator.dictionary.key-value",
+      "punctuation.separator.dictionary.pair",
+      "punctuation.separator.array"], "settings": { "foreground": "#ABB2BF" } }
+  ]
+}

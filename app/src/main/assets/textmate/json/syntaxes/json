@@ -1,0 +1,170 @@
+{
+	"name": "JSON (Minimal)",
+	"scopeName": "source.json",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#object"
+		},
+		{
+			"include": "#array"
+		},
+		{
+			"include": "#value"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.json",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.json",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"object": {
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.block.begin.json"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.block.end.json"
+				}
+			},
+			"name": "meta.structure.dictionary.json",
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"name": "meta.structure.dictionary.key.json",
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.json"
+						}
+					},
+					"end": "\"\\s*:",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.separator.dictionary.key-value.json"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#string_content"
+						}
+					]
+				},
+				{
+					"include": "#value"
+				},
+				{
+					"name": "punctuation.separator.dictionary.pair.json",
+					"match": ","
+				}
+			]
+		},
+		"array": {
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.begin.json"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.end.json"
+				}
+			},
+			"name": "meta.structure.array.json",
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#value"
+				},
+				{
+					"name": "punctuation.separator.array.json",
+					"match": ","
+				}
+			]
+		},
+		"value": {
+			"patterns": [
+				{
+					"include": "#string"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"name": "constant.language.boolean.true.json",
+					"match": "\\btrue\\b"
+				},
+				{
+					"name": "constant.language.boolean.false.json",
+					"match": "\\bfalse\\b"
+				},
+				{
+					"name": "constant.language.null.json",
+					"match": "\\bnull\\b"
+				},
+				{
+					"name": "invalid.illegal.trailing-comma.json",
+					"match": ",(?=\\s*[\\}\\]])"
+				}
+			]
+		},
+		"string": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.json"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.json"
+				}
+			},
+			"name": "string.quoted.double.json",
+			"patterns": [
+				{
+					"include": "#string_content"
+				}
+			]
+		},
+		"string_content": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.json",
+					"match": "\\\\([\"\\\\/bfnrt]|u[0-9A-Fa-f]{4})"
+				},
+				{
+					"name": "invalid.illegal.escape.json",
+					"match": "\\\\."
+				}
+			]
+		},
+		"number": {
+			"name": "constant.numeric.json",
+			"match": "-?(0|[1-9]\\d*)(\\.\\d+)?([eE][+-]?\\d+)?"
+		}
+	},
+	"scopeNameFallback": "source.json"
+}

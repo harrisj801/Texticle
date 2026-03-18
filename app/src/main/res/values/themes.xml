@@ -1,0 +1,5 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.DayNight">
+        <!-- Keep it empty for now; Compose doesn’t need action bar. -->
+    </style>
+</resources>
