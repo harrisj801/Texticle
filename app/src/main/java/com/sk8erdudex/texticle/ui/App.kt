@@ -502,7 +502,8 @@ fun App() {
                                 )
                             }
                         },
-                        config = SoraConfig(languageId = kind ?: "")
+                        config = SoraConfig(languageId = kind ?: ""),
+                        modifier = Modifier.fillMaxSize()
                     )
 //                //} else {
 //                    // your existing Compose editor
