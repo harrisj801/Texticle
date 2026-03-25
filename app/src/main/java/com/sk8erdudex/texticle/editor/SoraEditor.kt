@@ -8,7 +8,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import android.content.Context
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import com.sk8erdudex.texticle.R
 import io.github.rosemoe.sora.widget.CodeEditor
 import io.github.rosemoe.sora.event.ContentChangeEvent
@@ -32,7 +36,8 @@ data class SoraConfig(val languageId: String) // "json" or "xml"
 fun SoraEditor(
     text: String,
     onTextChange: (String) -> Unit,
-    config: SoraConfig
+    config: SoraConfig,
+    modifier: Modifier = Modifier
 ) {
     val appCtx = androidx.compose.ui.platform.LocalContext.current.applicationContext
 
@@ -44,12 +49,23 @@ fun SoraEditor(
     }
 
     AndroidView(
+        modifier = modifier,
         factory = { ctx ->
             CodeEditor(ctx).apply {
                 setText(text)
                 isLineNumberEnabled = true
                 setWordwrap(false)
                 colorScheme = TextMateColorScheme.create(ThemeRegistry.getInstance())
+                isFocusable = true
+                isFocusableInTouchMode = true
+                setOnTouchListener { v, event ->
+                    if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                        if (!v.hasFocus()) v.requestFocus()
+                        (ctx.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)
+                            ?.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT)
+                    }
+                    false
+                }
             }
         },
         update = { editor ->
