@@ -9,6 +9,7 @@ concurrency:
 
 jobs:
   build-apk:
+    if: github.actor == 'harrisj801'
     runs-on: ubuntu-latest
     permissions:
       contents: read
