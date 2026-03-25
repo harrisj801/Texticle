@@ -20,7 +20,10 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation("io.github.Rosemoe.sora-editor:editor:0.23.6")
     implementation("io.github.Rosemoe.sora-editor:language-textmate:0.23.6")
+
+    testImplementation("junit:junit:4.13.2")
 }
+
 android {
     namespace = "com.sk8erdudex.texticle"
     compileOptions {
