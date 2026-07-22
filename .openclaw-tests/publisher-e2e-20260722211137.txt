@@ -1,0 +1,1 @@
+OpenClaw publisher MCP end-to-end verification. Temporary file.
